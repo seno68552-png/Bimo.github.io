@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Leather Shoes</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        /* BANNER UTAMA */
+        .hero {
+            min-height: 430px;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(20, 15, 12, 0.9),
+                    rgba(20, 15, 12, 0.25)
+                ),
+                url("img/17.png");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            padding: 50px 8%;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 550px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.15;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 17px;
+            margin-bottom: 28px;
+            color: #eee;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: white;
+            color: #211711;
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .hero-btn:hover {
+            background: #b58a62;
+            color: white;
+        }
+
+        /* JUDUL BAGIAN */
+        .section {
+            max-width: 1250px;
+            margin: 50px auto;
+            padding: 0 25px;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            gap: 15px;
+        }
+
+        .section-title h2 {
+            font-size: 28px;
+            margin: 0;
+        }
+
+        .section-title a {
+            color: #754b2b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* KATEGORI */
+        .category-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .category {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            background: #ddd;
+        }
+
+        .category img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .category:hover img {
+            transform: scale(1.06);
+        }
+
+        .category h3 {
+            position: absolute;
+            bottom: 15px;
+            left: 20px;
+            color: white;
+            font-size: 24px;
+            text-shadow: 0 2px 8px #000;
+        }
+
+        /* PRODUK */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background: #e8e8e8;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-info h3 {
+            font-size: 18px;
+            margin: 0 0 8px;
+        }
+
+        .product-info p {
+            color: #777;
+            font-size: 14px;
+            margin: 0 0 12px;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #754b2b;
+        }
+
+        .product-btn {
+            display: block;
+            margin-top: 15px;
+            padding: 11px;
+            text-align: center;
+            background: #211711;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .product-btn:hover {
+            background: #754b2b;
+        }
+
+        /* BANNER PROMO */
+        .promo {
+            margin-top: 60px;
+            padding: 55px 25px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(135deg, #211711, #754b2b);
+        }
+
+        .promo h2 {
+            font-size: 32px;
+            margin: 0 0 12px;
+        }
+
+        .promo p {
+            margin-bottom: 25px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+            .hero {
+                min-height: 350px;
+                padding: 35px 6%;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .category-list,
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .product-card img {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .hero h1 {
+                font-size: 29px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .category-list,
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                margin: 35px auto;
+                padding: 0 15px;
+            }
+
+            .section-title h2 {
+                font-size: 23px;
+            }
+
+            .product-card img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- BANNER UTAMA -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Elegance in Every Step</h1>
+
+            <p>
+                Temukan sepatu kulit dengan desain modern,
+                kualitas pilihan, dan kenyamanan untuk setiap langkah.
+            </p>
+
+            <a href="products.html" class="hero-btn">
+                BELANJA SEKARANG
+            </a>
+        </div>
+    </section>
+
+
+    <!-- KATEGORI -->
+    <section class="section">
+        <div class="section-title">
+            <h2>Jelajahi Koleksi</h2>
+            <a href="products.html">Lihat Semua</a>
+        </div>
+
+        <div class="category-list">
+
+            <div class="category">
+                <img src="img/s1.png" alt="Sepatu formal">
+                <h3>Loafers</h3>
+            </div>
+
+            <div class="category">
+                <img src="img/t1.png" alt="Sepatu kasual">
+                <h3>Boots</h3>
+            </div>
+
+            <div class="category">
+                <img src="img/u1.png" alt="Sepatu boots">
+                <h3>Mules</h3>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PRODUK TERBARU -->
+    <section class="section">
+        <div class="section-title">
+            <h2>New Arrivals</h2>
+            <a href="products.html">Lihat Semua</a>
+        </div>
+
+        <div class="product-grid">
+
+            <div class="product-card">
+                <img src="img/t2.png" alt="Classic Leather Shoes">
+
+                <div class="product-info">
+                    <h3>Urban Leather Boots</h3>
+                    <p>Sepatu kulit formal dengan desain elegan.</p>
+                    <div class="price">Rp 1.350.000</div>
+
+                    <a href="products.html" class="product-btn">
+                        LIHAT PRODUK
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="img/s2.png" alt="Premium Leather Loafers">
+
+                <div class="product-info">
+                    <h3>Premium Penny Loafers</h3>
+                    <p>Gaya kasual yang tetap terlihat premium.</p>
+                    <div class="price">Rp 1.100.000</div>
+
+                    <a href="products.html" class="product-btn">
+                        LIHAT PRODUK
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="img/t3.png" alt="Modern Leather Boots">
+
+                <div class="product-info">
+                    <h3>Modern Leather Boots</h3>
+                    <p>Boots modern untuk tampilan yang berkarakter.</p>
+                    <div class="price">Rp 1.199.000</div>
+
+                    <a href="products.html" class="product-btn">
+                        LIHAT PRODUK
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="img/u2.png" alt="Brown Leather Shoes">
+
+                <div class="product-info">
+                    <h3>Modern Mules</h3>
+                    <p>Sepatu kulit cokelat dengan gaya klasik.</p>
+                    <div class="price">Rp 949.000</div>
+
+                    <a href="products.html" class="product-btn">
+                        LIHAT PRODUK
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="img/u3.png" alt="Black Leather Shoes">
+
+                <div class="product-info">
+                    <h3>Signature Mules</h3>
+                    <p>Sepatu hitam simpel untuk berbagai acara.</p>
+                    <div class="price">Rp 999.000</div>
+
+                    <a href="products.html" class="product-btn">
+                        LIHAT PRODUK
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PROMO -->
+    <section class="promo">
+        <h2>Step Into Something Better</h2>
+
+        <p>
+            Temukan koleksi sepatu kulit yang sesuai dengan gayamu.
+        </p>
+
+        <a href="products.html" class="hero-btn">
+            JELAJAHI KOLEKSI
+        </a>
+    </section>
+
+</body>
+</html>

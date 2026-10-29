@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products - Toko Sepatu Kulit</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px;
+            background: #f5f1eb;
+            color: #29231f;
+        }
+
+        /* JUDUL */
+        .header-produk {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header-produk h2 {
+            font-size: 32px;
+            letter-spacing: 1px;
+            color: #29231f;
+            margin-bottom: 8px;
+        }
+
+        .header-produk p {
+            color: #766c64;
+            font-size: 14px;
+        }
+
+
+        /* PILIHAN KATEGORI */
+        .kategori {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .kategori button {
+            padding: 11px 28px;
+            border: 1px solid #9b8065;
+            background: transparent;
+            color: #4b392b;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .kategori button:hover {
+            background: #4b392b;
+            color: white;
+        }
+
+        .kategori .aktif {
+            background: #4b392b;
+            color: white;
+        }
+
+
+        /* CONTAINER PRODUK */
+        .produk-container {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+
+        /* CARD PRODUK */
+        .produk {
+            background: #fffdf9;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid #e4ddd5;
+            transition: 0.3s;
+        }
+
+        .produk:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px rgba(55, 42, 31, 0.13);
+        }
+
+
+        /* GAMBAR */
+        .gambar-produk {
+            position: relative;
+            background: #eee9e2;
+            padding: 20px;
+        }
+
+        .gambar-produk img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+        }
+
+        .label {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #4b392b;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+
+
+        /* INFO PRODUK */
+        .info-produk {
+            padding: 20px;
+        }
+
+        .kategori-produk {
+            font-size: 11px;
+            color: #9b8065;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .produk h3 {
+            margin: 7px 0;
+            color: #29231f;
+            font-size: 19px;
+        }
+
+        .deskripsi {
+            font-size: 13px;
+            color: #766c64;
+            line-height: 1.5;
+            min-height: 40px;
+        }
+
+        .harga {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4b392b;
+            margin: 15px 0;
+        }
+
+
+        /* WARNA */
+        .warna {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #766c64;
+            margin-bottom: 15px;
+        }
+
+        .bulat {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: inline-block;
+            border: 1px solid #aaa;
+        }
+
+        .hitam {
+            background: #171717;
+        }
+
+        .coklat {
+            background: #63452f;
+        }
+
+        .tan {
+            background: #a9825e;
+        }
+
+
+        /* TOMBOL */
+        .tombol {
+            display: flex;
+            gap: 8px;
+        }
+
+        .beli,
+        .keranjang {
+            flex: 1;
+            padding: 11px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: 0.3s;
+        }
+
+        .beli {
+            background: #4b392b;
+            color: white;
+            border: 1px solid #4b392b;
+        }
+
+        .beli:hover {
+            background: #29231f;
+        }
+
+        .keranjang {
+            background: transparent;
+            color: #4b392b;
+            border: 1px solid #4b392b;
+        }
+
+        .keranjang:hover {
+            background: #eee6dd;
+        }
+
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+            .produk-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+            body {
+                padding: 20px;
+            }
+
+            .produk-container {
+                grid-template-columns: 1fr;
+            }
+
+            .header-produk h2 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header-produk">
+        <h2>Our Collection</h2>
+        <p>
+            Temukan koleksi sepatu kulit pilihan dengan desain klasik dan elegan.
+        </p>
+    </div>
+
+
+    <!-- KATEGORI -->
+    <div class="kategori">
+
+        <button class="aktif">All</button>
+        <button>Boots</button>
+        <button>Loafers</button>
+        <button>Mules</button>
+
+    </div>
+
+
+    <!-- PRODUK -->
+    <div class="produk-container">
+
+
+        <!-- PRODUK 1 -->
+        <div class="produk">
+
+            <div class="gambar-produk">
+                <span class="label">BEST SELLER</span>
+                <img src="img/t1.png">
+            </div>
+
+            <div class="info-produk">
+                <span class="kategori-produk">Boots</span>
+
+                <h3>Classic Leather Boots</h3>
+
+                <p class="deskripsi">
+                    Boots kulit dengan desain klasik dan elegan
+                    untuk tampilan yang lebih berkelas.
+                </p>
+
+                <p class="harga">Rp 1.250.000</p>
+
+                <div class="warna">
+                    Warna:
+                    <span class="bulat hitam"></span>
+                    <span class="bulat coklat"></span>
+                </div>
+
+                <div class="tombol">
+                    <button class="beli">Beli Sekarang</button>
+                    <button class="keranjang">+ Keranjang</button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- PRODUK 2 -->
+        <div class="produk">
+
+            <div class="gambar-produk">
+                <span class="label">NEW</span>
+                <img src="img/t2.png">
+            </div>
+
+            <div class="info-produk">
+                <span class="kategori-produk">Boots</span>
+
+                <h3>Urban Leather Boots</h3>
+
+                <p class="deskripsi">
+                    Model boots modern dengan karakter klasik
+                    yang cocok digunakan sehari-hari.
+                </p>
+
+                <p class="harga">Rp 1.350.000</p>
+
+                <div class="warna">
+                    Warna:
+                    <span class="bulat hitam"></span>
+                    <span class="bulat coklat"></span>
+                </div>
+
+                <div class="tombol">
+                    <button class="beli">Beli Sekarang</button>
+                    <button class="keranjang">+ Keranjang</button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- PRODUK 3 -->
+        <div class="produk">
+
+            <div class="gambar-produk">
+                <img src="img/t3.png">
+            </div>
+
+            <div class="info-produk">
+                <span class="kategori-produk">Boots</span>
+
+                <h3>Heritage Leather Boots</h3>
+
+                <p class="deskripsi">
+                    Boots bergaya heritage dengan tampilan
+                    timeless dan elegan.
+                </p>
+
+                <p class="harga">Rp 1.450.000</p>
+
+                <div class="warna">
+                    Warna:
+                    <span class="bulat coklat"></span>
+                    <span class="bulat tan"></span>
+                </div>
+
+                <div class="tombol">
+                    <button class="beli">Beli Sekarang</button>
+                    <button class="keranjang">+ Keranjang</button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- PRODUK 4 -->
+        <div class="produk">
+
+            <div class="gambar-produk">
+                <span class="label">BEST SELLER</span>
+                <img src="img/s1.png">
+            </div>
+
+            <div class="info-produk">
+                <span class="kategori-produk">Loafers</span>
+
+                <h3>Classic Leather Loafers</h3>
+
+                <p class="deskripsi">
+                    Loafers kulit dengan desain minimalis
+                    untuk gaya formal maupun casual.
+                </p>
+
+                <p class="harga">Rp 950.000</p>
+
+                <div class="warna">
+                    Warna:
+                    <span class="bulat hitam"></span>
+                    <span class="bulat coklat"></span>
+                </div>
+
+                <div class="tombol">
+                    <button class="beli">Beli Sekarang</button>
+                    <button class="keranjang">+ Keranjang</button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- PRODUK 5 -->
+        <div class="produk">
+
+            <div class="gambar-produk">
+                <img src="img/s2.png">
+            </div>
+
+            <div class="info-produk">
+                <span class="kategori-produk">Loafers</span>
+
+                <h3>Premium Penny Loafers</h3>
+
+                <p class="deskripsi">
+                    Loafers premium dengan desain bersih
+                    dan cocok untuk acara formal.
+                </p>
+
+                <p class="harga">Rp 1.100.000</p>
+
+                <div class="warna">
+                    Warna:
+                    <span class="bulat coklat"></span>
+                    <span class="bulat tan"></span>
+                </div>
+
+                <div class="tombol">
+                    <button class="beli">Beli Sekarang</button>
+                    <button class="keranjang">+ Keranjang</button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- PRODUK 6 -->
+        <div class="produk">
+
+            <div class="gambar-produk">
+                <span class="label">NEW</span>
+                <img src="img/s3.png">
+            </div>
+
+            <div class="info-produk">
+                <span class="kategori-produk">Loafers</span>
+
+                <h3>Elegant Leather Loafers</h3>
+
+                <p class="deskripsi">
+                    Sepatu loafers dengan desain elegan
+                    untuk melengkapi gaya premium.
+                </p>
+
+                <p class="harga">Rp 1.200.000</p>
+
+                <div class="warna">
+                    Warna:
+                    <span class="bulat hitam"></span>
+                    <span class="bulat coklat"></span>
+                </div>
+
+                <div class="tombol">
+                    <button class="beli">Beli Sekarang</button>
+                    <button class="keranjang">+ Keranjang</button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- PRODUK 7 -->
+        <div class="produk">
+
+            <div class="gambar-produk">
+                <img src="img/u1.png">
+            </div>
+
+            <div class="info-produk">
+                <span class="kategori-produk">Smulls</span>
+
+                <h3>Classic Leather Mules</h3>
+
+                <p class="deskripsi">
+                    Sepatu Smulls dengan desain sederhana,
+                    nyaman, dan tetap terlihat elegan.
+                </p>
+
+                <p class="harga">Rp 850.000</p>
+
+                <div class="warna">
+                    Warna:
+                    <span class="bulat hitam"></span>
+                    <span class="bulat coklat"></span>
+                </div>
+
+                <div class="tombol">
+                    <button class="beli">Beli Sekarang</button>
+                    <button class="keranjang">+ Keranjang</button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- PRODUK 8 -->
+        <div class="produk">
+
+            <div class="gambar-produk">
+                <span class="label">SALE</span>
+                <img src="img/u2.png">
+            </div>
+
+            <div class="info-produk">
+                <span class="kategori-produk">Smulls</span>
+
+                <h3>Modern Leather Mules</h3>
+
+                <p class="deskripsi">
+                    Smulls modern dengan bentuk minimalis
+                    untuk penggunaan sehari-hari.
+                </p>
+
+                <p class="harga">Rp 900.000</p>
+
+                <div class="warna">
+                    Warna:
+                    <span class="bulat coklat"></span>
+                    <span class="bulat tan"></span>
+                </div>
+
+                <div class="tombol">
+                    <button class="beli">Beli Sekarang</button>
+                    <button class="keranjang">+ Keranjang</button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- PRODUK 9 -->
+        <div class="produk">
+
+            <div class="gambar-produk">
+                <span class="label">PREMIUM</span>
+                <img src="img/u3.png">
+            </div>
+
+            <div class="info-produk">
+                <span class="kategori-produk">Smulls</span>
+
+                <h3>Signature Leather Mules</h3>
+
+                <p class="deskripsi">
+                    Koleksi premium dengan desain klasik
+                    dan tampilan yang eksklusif.
+                </p>
+
+                <p class="harga">Rp 1.150.000</p>
+
+                <div class="warna">
+                    Warna:
+                    <span class="bulat hitam"></span>
+                    <span class="bulat coklat"></span>
+                </div>
+
+                <div class="tombol">
+                    <button class="beli">Beli Sekarang</button>
+                    <button class="keranjang">+ Keranjang</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
